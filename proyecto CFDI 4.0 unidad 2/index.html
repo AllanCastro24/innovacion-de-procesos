@@ -143,41 +143,47 @@
                       </div>
                   </div>
               </div>
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Rfc</th>
-                            <th>Nombre</th>
-                            <th>Conceptos</th>
-                            <th>Total</th>
-                            <th>Imp Trasladados</th>
-                            <th>Archivo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="cfdi in cfdis">
-                            <td>{{cfdi.fecha}}</td>
-                            <td>{{cfdi.rfc}}</td>
-                            <td>{{cfdi.nombre}}</td>
-                            <td>
-                                <div v-for="concepto in cfdi.conceptos" class="concepto">
-                                    {{concepto.cantidad}}
-                                    {{concepto.descripcion}}
-                                    ${{concepto.importe.toFixed(2)}}
-                                  <span v-for="traslado in concepto.traslados" class="traslado">
-                                      {{traslado.tipo}}
-                                      {{traslado.tasa}}
-                                  </span>
-                                </div>
-                            </td>
-                            <td>{{total(cfdi).toFixed(2)}}</td>
-                            <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}}</td>
-                            <td>{{cfdi.archivo}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Resultados</h4>
+                    <!--p class="card-description"> Add class <code>.table</code></p-->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Rfc</th>
+                                <th>Nombre</th>
+                                <th>Conceptos</th>
+                                <th>Total</th>
+                                <th>Imp Trasladados</th>
+                                <th>Archivo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="cfdi in cfdis">
+                                <td>{{cfdi.fecha}}</td>
+                                <td>{{cfdi.rfc}}</td>
+                                <td>{{cfdi.nombre}}</td>
+                                <td>
+                                    <div v-for="concepto in cfdi.conceptos" class="concepto">
+                                        {{concepto.cantidad}}
+                                        {{concepto.descripcion}}
+                                        ${{concepto.importe.toFixed(2)}}
+                                      <span v-for="traslado in concepto.traslados" class="traslado">
+                                          {{traslado.tipo}}
+                                          {{traslado.tasa}}
+                                      </span>
+                                    </div>
+                                </td>
+                                <td>{{total(cfdi).toFixed(2)}}</td>
+                                <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}}</td>
+                                <td>{{cfdi.archivo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
           </div>
           </div>
