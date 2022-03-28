@@ -179,6 +179,7 @@
                   </div>
                 </div>
                 <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw" type="button" value="Exportar a excel" onclick="exportTableToExcel('tabla','Reporte')">
+                <br><input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw" type="button" value="Limpiar tabla" onclick="limpiar_tabla()">
               </div>
           </div>
           </div>
@@ -256,6 +257,16 @@
               downloadLink.click();
           }
       }
+
+      function limpiar_tabla(){
+        var table = document.getElementById("tabla");
+        var rowCount = table.rows.length;
+      
+        if(rowCount < 2)
+            alert('No se puede eliminar el encabezado');
+        else
+            table.deleteRow(rowCount -1);
+          }
     </script>
   </body>
 </html>
