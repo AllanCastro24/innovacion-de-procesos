@@ -128,8 +128,8 @@
                       <table class="table table-striped table-bordered table-hover margenb" id="totales" ref="totales" style="width:320px">
                           <tbody>
                               <tr><th>Cantidad</th><td>{{cantidad}}</td></tr>
-                              <tr><th>Total</th><td>${{total_suma.toFixed(2)}}</td></tr>
-                              <tr><th>Impuestos Trasladados</th><td>${{total_impuestos_trasladados.toFixed(2)}}</td></tr>
+                              <tr><th>Total</th><td>${{total_suma.toFixed(2)}} $</td></tr>
+                              <tr><th>Impuestos Trasladados</th><td>${{total_impuestos_trasladados.toFixed(2)}} $</td></tr>
                           </tbody>
                       </table>
                   </div>
@@ -171,15 +171,15 @@
                                     <div v-for="concepto in cfdi.conceptos" class="concepto">
                                         {{concepto.cantidad}}
                                         {{concepto.descripcion}}
-                                        ${{concepto.importe.toFixed(2)}}
+                                        ${{concepto.importe.toFixed(2)}} $
                                       <span v-for="traslado in concepto.traslados" class="traslado">
                                           {{traslado.tipo}}
-                                          {{traslado.tasa}}
+                                          {{traslado.tasa}} 
                                       </span>
                                     </div>
                                 </td>
-                                <td>{{total(cfdi).toFixed(2)}}</td>
-                                <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}}</td>
+                                <td>{{total(cfdi).toFixed(2)}} $</td>
+                                <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td>
                                 <td>{{cfdi.archivo}}</td>
                             </tr>
                         </tbody>
