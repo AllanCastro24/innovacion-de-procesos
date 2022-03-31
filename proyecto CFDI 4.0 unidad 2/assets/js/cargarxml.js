@@ -14,11 +14,14 @@ function cargarXML(theFile) {
       //comprobante es el primer tag
       var comprobante = $(contenido)[0];
       emisor = $(comprobante).children('EMISOR')[0];
+      recptor = $(comprobante).children('RECEPTOR')[0];
       var out = {
         archivo: theFile.name,
         fecha: comprobante.attributes['FECHA'].value.replace(/T.+/g, ''),
         rfc: emisor.attributes['RFC'].value,
         nombre: emisor.attributes['NOMBRE'].value,
+        rfc_receptor: recptor.attributes['RFC'].value,
+        nombre_receptor: recptor.attributes['NOMBRE'].value,
         conceptos: [],
         total: 0,
         totalimpuestostrasladados: 0,

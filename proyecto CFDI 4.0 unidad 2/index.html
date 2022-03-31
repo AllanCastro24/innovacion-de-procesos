@@ -50,8 +50,8 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Usuario</h5>
-                  <span>Persona moral</span>
+                  <h5 class="mb-0 font-weight-normal">Invitado</h5>
+                  <span>Aun no ha iniciado sesión</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -129,7 +129,7 @@
                           <tbody>
                               <tr><th>Cantidad</th><td>{{cantidad}}</td></tr>
                               <tr><th>Total</th><td>${{total_suma.toFixed(2)}} $</td></tr>
-                              <tr><th>Impuestos Trasladados</th><td>${{total_impuestos_trasladados.toFixed(2)}} $</td></tr>
+                              <tr><th>Total impuestos</th><td>${{total_impuestos_trasladados.toFixed(2)}} $</td></tr>
                           </tbody>
                       </table>
                   </div>
@@ -154,11 +154,13 @@
                         <thead>
                             <tr>
                                 <th>Fecha</th>
-                                <th>Rfc</th>
-                                <th>Nombre</th>
+                                <th>Rfc receptor</th>
+                                <th>Nombre receptor</th>
                                 <th>Conceptos</th>
                                 <th>Total</th>
                                 <th>Imp Trasladados</th>
+                                <th>Rfc emisor</th>
+                                <th>Nombre emisor</th>
                                 <th>Archivo</th>
                             </tr>
                         </thead>
@@ -180,6 +182,8 @@
                                 </td>
                                 <td>{{total(cfdi).toFixed(2)}} $</td>
                                 <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td>
+                                <td>{{cfdi.rfc_receptor}}</td>
+                                <td>{{cfdi.nombre_receptor}}</td>
                                 <td>{{cfdi.archivo}}</td>
                             </tr>
                         </tbody>
@@ -188,7 +192,7 @@
                         </tfoot>
                     </table>
                   </div>
-                  <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Limpiar tabla" onclick="limpiar_tabla()">
+                  <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Guardar datos" onclick="alert('En construcción')">
                 </div>
               </div>
           </div>
