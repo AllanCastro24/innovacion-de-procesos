@@ -26,8 +26,6 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-18562188-24"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -52,7 +50,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal"><a href="#" style="color: whitesmoke">Invitado</a></h5>
+                  <h5 class="mb-0 font-weight-normal"><a href="configurar-perfil.html" style="color: whitesmoke">Invitado</a></h5>
                   <span>Aun no ha iniciado sesión</span>
                 </div>
               </div>
@@ -61,11 +59,22 @@
                 <a href="login.html" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-account text-primary"></i>
+                      <i class="mdi mdi-settings text-primary"></i>
                     </div>
                   </div>
                   <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Iniciar sesión</p>
+                    <p class="preview-subject ellipsis mb-1 text-small">Configurar cuenta</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="cambiar_pass.html" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Cambiar contraseña</p>
                   </div>
                 </a>
               </div>
@@ -80,6 +89,14 @@
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Consultar CFDI</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="estadisticas.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">Estadisticas</span>
             </a>
           </li>
         </ul>
@@ -128,12 +145,12 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Resultados</h4>
-                  <p class="card-description"> <input type="text" id="buscar" class="form-control" placeholder="Buscar algo" style="color: aliceblue;">
+                  <p class="card-description"> <input type="text" class="form-control" placeholder="Buscar algo" style="color: aliceblue;">
                     <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Exportar a excel" onclick="exportTableToExcel('tabla','Reporte')">
                   </p>
                   
                   <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla" style="color: aliceblue; scroll-behavior: auto;">
+                    <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla" style="color: aliceblue;">
                         <thead>
                             <tr>
                                 <th>Fecha</th>
@@ -170,21 +187,12 @@
                                 <td>{{cfdi.archivo}}</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                          <td scope="row">Totales:</td>
+                        </tfoot>
                     </table>
-                    <script>
-                      $(document).ready(function(){
-                        $("#buscar").on("keyup", function() {
-                          var value = $(this).val().toLowerCase();
-                          $("#tablita tr").filter(function() {
-                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                          });
-                        });
-                      });
-                      $(function(){
-                        $("#tabla").makeSortable();
-                      });
-                    </script>
                   </div>
+                  <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Guardar datos" onclick="alert('En construcción')">
                 </div>
               </div>
           </div>
@@ -273,34 +281,6 @@
         else
             table.deleteRow(rowCount -1);
           }
-    </script>
-    <script>
-        (function($){
-        $.fn.extend({
-              makeSortable: function(){
-                  var MyTable = this;
-                  var getCellValue = function (row, index){ 
-                      return $(row).children('td').eq(index).text();
-                  };
-                  MyTable.find('th').click(function(){
-                      var table = $(this).parents('table').eq(0);
-                      // Sort by the given filter
-                      var rows = table.find('tr:gt(0)').toArray().sort(function(a, b) {
-                          var index = $(this).index();
-                          var valA = getCellValue(a, index), valB = getCellValue(b, index);
-                          return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB);
-                      });
-                      this.asc = !this.asc;
-                      if (!this.asc){
-                          rows = rows.reverse();
-                      }
-                      for (var i = 0; i < rows.length; i++){
-                          table.append(rows[i]);
-                      }
-                  });
-              }
-          });
-      })(jQuery);
     </script>
   </body>
 </html>
