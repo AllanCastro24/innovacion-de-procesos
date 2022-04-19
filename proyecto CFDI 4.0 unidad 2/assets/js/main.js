@@ -26,6 +26,21 @@ var app = new Vue({
     cantidad: function() {
       return this.cfdis.length;
     },
+    total_ingresos: function() {
+      return 0;
+    },
+    total_egresos: function() {
+      return 0;
+    },
+    total_traslados: function() {
+      return 0;
+    },
+    total_nomina: function() {
+      return 0;
+    },
+    total_pago: function() {
+      return 0;
+    },
   },
   methods: {
     handleDragOver: function(evt) {
