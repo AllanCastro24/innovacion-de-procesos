@@ -178,19 +178,20 @@
                                 <td></td>
                                 <td>{{cfdi.nombre_receptor}}</td>
                                 <td>{{cfdi.rfc_receptor}}</td>
-                                <td>
-                                    <div v-for="concepto in cfdi.conceptos" class="concepto">
-                                        {{concepto.cantidad}}
-                                        {{concepto.descripcion}}
-                                        ${{concepto.importe.toFixed(2)}} $
-                                      <span v-for="traslado in concepto.traslados" class="traslado">
-                                          {{traslado.tipo}}
-                                          {{traslado.tasa}} 
-                                      </span>
-                                    </div>
-                                </td>
                                 <td>{{total(cfdi).toFixed(2)}} $</td>
-                                <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td>
+                                <td></td>
+                                <!--td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td-->
+                                <td>
+                                  <div v-for="concepto in cfdi.conceptos" class="concepto">
+                                      {{concepto.cantidad}}
+                                      {{concepto.descripcion}}
+                                      ${{concepto.importe.toFixed(2)}} $
+                                    <span v-for="traslado in concepto.traslados" class="traslado">
+                                        {{traslado.tipo}}
+                                        {{traslado.tasa}} 
+                                    </span>
+                                  </div>
+                              </td>
                                 <td>{{cfdi.archivo}}</td>
                             </tr>
                         </tbody>
