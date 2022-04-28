@@ -13,8 +13,8 @@ function cargarXML(theFile) {
       // x=contenido;
       //comprobante es el primer tag
       var comprobante = $(contenido)[0];
-      emisor = $(comprobante).children('EMISOR')[0];
-      receptor = $(comprobante).children('RECEPTOR')[0];
+      var emisor = $(comprobante).children('EMISOR')[0];
+      var receptor = $(comprobante).children('RECEPTOR')[0];
       var out = {
         archivo: theFile.name,
         fecha: comprobante.attributes['FECHA'].value.replace(/T.+/g, ''),
