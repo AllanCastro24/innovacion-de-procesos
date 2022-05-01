@@ -38,7 +38,7 @@
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html" style="color: whitesmoke;"><h1>CFDI</h1></a>
+          <a class="sidebar-brand brand-logo" href="index.html" style="color: whitesmoke;"><h2>CFDI</h2></a>
           <a class="sidebar-brand brand-logo-mini" href="index.html" style="color: whitesmoke;"><h6>CFDI</h6></a>
         </div>
         <ul class="nav">
@@ -50,7 +50,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Invitado</h5>
+                  <h5 class="mb-0 font-weight-normal"><a href="configurar-perfil.html" style="color: whitesmoke">Invitado</a></h5>
                   <span>Aun no ha iniciado sesión</span>
                 </div>
               </div>
@@ -91,7 +91,7 @@
               <span class="menu-title">Consultar CFDI</span>
             </a>
           </li>
-          <li class="nav-item menu-items selected">
+          <li class="nav-item menu-items">
             <a class="nav-link" href="estadisticas.html">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -120,82 +120,8 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <h1>Analizador CFDIs</h1>
-            <div id="app">
-              <div id="drop" class="dropfiles margenb" ref="drop">Arrastra los archivos XML aquí</div>
-              <div class="row">
-                  <div class="col-sm table-responsive">
-                      <table class="table table-striped table-bordered table-hover margenb" id="totales" ref="totales" style="width:320px">
-                          <tbody>
-                              <tr><th>Cantidad</th><td>{{cantidad}}</td></tr>
-                              <tr><th>Total</th><td>${{total_suma.toFixed(2)}}</td></tr>
-                              <tr><th>Total impuestos</th><td>${{total_impuestos_trasladados.toFixed(2)}}</td></tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="col-sm">
-                      <div v-if="errores.length" class="alert alert-warning">
-                          <h3>Errores:</h3>
-                          <ul>
-                              <li v-for="error in errores">{{error.archivo}}: {{error.mensaje}}</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Resultados</h4>
-                  <p class="card-description"> <input type="text" class="form-control" placeholder="Buscar algo" style="color: aliceblue;">
-                    <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Exportar a excel" onclick="exportTableToExcel('tabla','Reporte')">
-                  </p>
-                  
-                  <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla" style="color: aliceblue;">
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Rfc emisor</th>
-                                <th>Nombre emisor</th>
-                                <th>Nombre receptor</th>
-                                <th>Rfc receptor</th>
-                                <th>Conceptos</th>
-                                <th>Total</th>
-                                <th>Impuestos</th>
-                                <th>Archivo</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablita" >
-                            <tr v-for="cfdi in cfdis">
-                                <td>{{cfdi.fecha}}</td>
-                                <td>{{cfdi.rfc}}</td>
-                                <td>{{cfdi.nombre}}</td>
-                                <td>{{cfdi.nombre_receptor}}</td>
-                                <td>{{cfdi.rfc_receptor}}</td>
-                                <td>
-                                    <div v-for="concepto in cfdi.conceptos" class="concepto">
-                                        {{concepto.cantidad}}
-                                        {{concepto.descripcion}}
-                                        ${{concepto.importe.toFixed(2)}} $
-                                      <span v-for="traslado in concepto.traslados" class="traslado">
-                                          {{traslado.tipo}}
-                                          {{traslado.tasa}} 
-                                      </span>
-                                    </div>
-                                </td>
-                                <td>{{total(cfdi).toFixed(2)}} $</td>
-                                <td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td>
-                                <td>{{cfdi.archivo}}</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                          <td scope="row">Totales:</td>
-                        </tfoot>
-                    </table>
-                  </div>
-                  <input style="background-color: #12151e; color: aliceblue; border-color: #12151e;" class="btn btn-primary btn-fw form-control" type="button" value="Guardar datos" onclick="alert('En construcción')">
-                </div>
-              </div>
-          </div>
+          <!--Aqui va tu código alondra -->  
+            
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
