@@ -25,6 +25,9 @@ function cargarXML(theFile) {
         conceptos: [],
         total: 0,
         totalimpuestostrasladados: 0,
+        serie: comprobante.attributes['SERIE'].value,
+        tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
+        fact: "F-" + comprobante.attributes['FOLIO'].value,
       };
       if ($(comprobante).children('IMPUESTOS')[0]) {
         out.totalimpuestostrasladados = parseFloat(

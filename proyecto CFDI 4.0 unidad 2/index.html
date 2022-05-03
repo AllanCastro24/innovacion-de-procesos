@@ -153,6 +153,8 @@
                             <th>Total</th>
                             <th>RFC para DIOT</th>
                             <th>Concepto del gasto</th>
+                            <th>Nombre receptor</th>
+                            <th>RFC Receptor</th>
                             <th>Nombre de archivo XML</th>
                           </tr>
                             <!--tr> //Formato antiguo
@@ -170,16 +172,16 @@
                         <tbody id="tablita" >
                             <tr v-for="cfdi in cfdis">
                                 <td>{{cfdi.fecha}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{cfdi.tipo}}</td>
+                                <td>{{cfdi.serie}}</td>
+                                <td>{{cfdi.fact}}</td>
                                 <td>{{cfdi.nombre}}</td>
-                                <td>{{cfdi.rfc}}</td>
                                 <td></td>
-                                <td>{{cfdi.nombre_receptor}}</td>
-                                <td>{{cfdi.rfc_receptor}}</td>
+                                <td></td>
+                                <td></td>
+                                <td><!--{{cfdi.rfc_receptor}}--></td>
                                 <td>{{total(cfdi).toFixed(2)}} $</td>
-                                <td></td>
+                                <td>{{cfdi.rfc}}</td>
                                 <!--td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td-->
                                 <td>
                                   <div v-for="concepto in cfdi.conceptos" class="concepto">
@@ -191,7 +193,9 @@
                                         {{traslado.tasa}} 
                                     </span>
                                   </div>
-                              </td>
+                                </td>
+                                <td>{{cfdi.nombre_receptor}}</td>
+                                <td>{{cfdi.rfc_receptor}}</td>
                                 <td>{{cfdi.archivo}}</td>
                             </tr>
                         </tbody>
