@@ -117,7 +117,6 @@
                               <tr><th>Nómina:</th><td>{{total_nomina}}</td></tr>
                               <tr><th>Pago:</th><td>{{total_pago}}</td></tr>
                               <tr><th>Total:</th><td>${{total_suma.toFixed(2)}}</td></tr>
-                              <tr><th>Total impuestos:</th><td>${{total_impuestos_trasladados.toFixed(2)}}</td></tr>
                           </tbody>
                       </table>
                   </div>
@@ -180,7 +179,7 @@
                                 <td>{{total_gravado(cfdi).toFixed(2)}} $</td>
                                 <td>{{cfdi.iva}} $</td>
                                 <td><!--{{cfdi.rfc_receptor}}--></td>
-                                <td>{{total(cfdi).toFixed(2)}} $</td>
+                                <td>{{cfdi.total_importe}} $</td>
                                 <td>{{cfdi.rfc}}</td>
                                 <!--td>{{cfdi.totalimpuestostrasladados.toFixed(2)}} $</td-->
                                 <td>

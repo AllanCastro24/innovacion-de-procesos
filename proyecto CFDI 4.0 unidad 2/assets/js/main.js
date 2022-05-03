@@ -16,17 +16,14 @@ var app = new Vue({
       }
       return total;
     },
-    total_impuestos_trasladados: function() {
-      var total = 0;
-      for (var i = this.cfdis.length - 1; i >= 0; i--) {
-        total += this.cfdis[i].totalimpuestostrasladados;
-      }
-      return total;
-    },
     cantidad: function() {
       return this.cfdis.length;
     },
     total_ingresos: function() {
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        return 0;
+      }
       return 0;
     },
     total_egresos: function() {
@@ -63,12 +60,10 @@ var app = new Vue({
     total_gravado: function(item) {
       //Obtener importes gravados de conceptos
       var suma = 0;
-      var total = 0;
       for (var i = item.conceptos.length - 1; i >= 0; i--) {
         suma += item.conceptos[i].importe;
       }
-      total = suma;
-      return total;
+      return suma;
     },
     total: function(item){
       //Obtener totales de conceptos

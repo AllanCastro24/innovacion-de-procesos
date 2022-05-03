@@ -24,7 +24,7 @@ function cargarXML(theFile) {
         rfc_receptor: receptor.attributes['RFC'].value,
         nombre_receptor: receptor.attributes['NOMBRE'].value,
         conceptos: [],
-        total: 0,
+        total_importe: comprobante.attributes['TOTAL'].value,
         //totalimpuestostrasladados: 0,
         serie: comprobante.attributes['SERIE'].value,
         tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
