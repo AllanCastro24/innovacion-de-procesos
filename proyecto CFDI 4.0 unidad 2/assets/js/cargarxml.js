@@ -25,6 +25,7 @@ function cargarXML(theFile) {
         nombre_receptor: receptor.attributes['NOMBRE'].value,
         conceptos: [],
         total_importe: comprobante.attributes['TOTAL'].value,
+        sub_total: comprobante.attributes['SUBTOTAL'].value,
         //totalimpuestostrasladados: 0,
         serie: comprobante.attributes['SERIE'].value,
         tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,

@@ -20,10 +20,11 @@ var app = new Vue({
       return this.cfdis.length;
     },
     total_ingresos: function() {
-      var total = 0;
-      for (var i = this.cfdis.length - 1; i >= 0; i--) {
-        return 0;
-      }
+      //var total = 0;
+      //for (var i = this.cfdis.length - 1; i >= 0; i--) {
+      //  console.log(item.comprobante[i].tipo);
+      //  total = total + 1;
+      //}
       return 0;
     },
     total_egresos: function() {
