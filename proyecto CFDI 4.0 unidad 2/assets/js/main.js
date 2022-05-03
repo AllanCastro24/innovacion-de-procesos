@@ -60,12 +60,25 @@ var app = new Vue({
         reader.readAsText(f);
       }
     },
-    total: function(item) {
+    total_gravado: function(item) {
+      //Obtener importes gravados de conceptos
       var suma = 0;
+      var total = 0;
       for (var i = item.conceptos.length - 1; i >= 0; i--) {
         suma += item.conceptos[i].importe;
       }
-      return suma;
+      total = suma;
+      return total;
+    },
+    total: function(item){
+      //Obtener totales de conceptos
+      var suma = 0;
+      var total = 0;
+      for (var i = item.conceptos.length - 1; i >= 0; i--) {
+        suma += item.conceptos[i].importe;
+      }
+      total = suma;
+      return total;
     },
     agregar: function(item) {
       //borrar si es que estuviera duplicado

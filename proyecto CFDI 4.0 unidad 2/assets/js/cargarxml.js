@@ -15,6 +15,7 @@ function cargarXML(theFile) {
       var comprobante = $(contenido)[0];
       var emisor = $(comprobante).children('EMISOR')[0];
       var receptor = $(comprobante).children('RECEPTOR')[0];
+      var impuesto = $(comprobante).children('IMPUESTOS')[0];
       var out = {
         archivo: theFile.name,
         fecha: comprobante.attributes['FECHA'].value.replace(/T.+/g, ''),
@@ -24,18 +25,19 @@ function cargarXML(theFile) {
         nombre_receptor: receptor.attributes['NOMBRE'].value,
         conceptos: [],
         total: 0,
-        totalimpuestostrasladados: 0,
+        //totalimpuestostrasladados: 0,
         serie: comprobante.attributes['SERIE'].value,
         tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
         fact: "F-" + comprobante.attributes['FOLIO'].value,
+        iva: impuesto.attributes['TotalImpuestosTrasladados'].value,
       };
-      if ($(comprobante).children('IMPUESTOS')[0]) {
-        out.totalimpuestostrasladados = parseFloat(
-          $(comprobante).children('IMPUESTOS')[0].attributes[
-            'TOTALIMPUESTOSTRASLADADOS'
-          ].value
-        );
-      }
+      //if ($(comprobante).children('IMPUESTOS')[0]) {
+      //  out.totalimpuestostrasladados = parseFloat(
+      //    $(comprobante).children('IMPUESTOS')[0].attributes[
+      //      'TOTALIMPUESTOSTRASLADADOS'
+      //    ].value
+      //  );
+      //}
       var conceptos = $(comprobante)
         .children('CONCEPTOS')
         .children('CONCEPTO');
