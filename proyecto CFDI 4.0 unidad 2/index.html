@@ -116,7 +116,7 @@
                               <tr><th>Traslados:</th><td>{{total_traslados}}</td></tr>
                               <tr><th>Nómina:</th><td>{{total_nomina}}</td></tr>
                               <tr><th>Pago:</th><td>{{total_pago}}</td></tr>
-                              <tr><th>Total:</th><td>${{total_suma.toFixed(2)}}</td></tr>
+                              <!--tr><th>Total:</th><td>${{total_suma.toFixed(2)}}</td></tr-->
                           </tbody>
                       </table>
                   </div>
@@ -156,17 +156,6 @@
                             <th>RFC Receptor</th>
                             <th>Nombre de archivo XML</th>
                           </tr>
-                            <!--tr> //Formato antiguo
-                                <th>Fecha</th>
-                                <th>Rfc emisor</th>
-                                <th>Nombre emisor</th>
-                                <th>Nombre receptor</th>
-                                <th>Rfc receptor</th>
-                                <th>Conceptos</th>
-                                <th>Total</th>
-                                <th>Impuestos</th>
-                                <th>Archivo</th>
-                            </tr-->
                         </thead>
                         <tbody id="tablita" >
                             <tr v-for="cfdi in cfdis">

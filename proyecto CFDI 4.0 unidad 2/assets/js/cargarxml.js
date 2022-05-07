@@ -27,18 +27,21 @@ function cargarXML(theFile) {
         total_importe: comprobante.attributes['TOTAL'].value,
         sub_total: comprobante.attributes['SUBTOTAL'].value,
         //totalimpuestostrasladados: 0,
-        serie: comprobante.attributes['SERIE'].value,
+        serie: " ",//comprobante.attributes['SERIE'].value,
         tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
         fact: "F-" + comprobante.attributes['FOLIO'].value,
-        iva: impuesto.attributes['TotalImpuestosTrasladados'].value,
+        iva: 0,//impuesto.attributes['TotalImpuestosTrasladados'].value,
       };
-      //if ($(comprobante).children('IMPUESTOS')[0]) {
-      //  out.totalimpuestostrasladados = parseFloat(
-      //    $(comprobante).children('IMPUESTOS')[0].attributes[
-      //      'TOTALIMPUESTOSTRASLADADOS'
-      //    ].value
-      //  );
-      //}
+      if (comprobante.attributes['SERIE']) {
+        out.serie = comprobante.attributes['SERIE'].value;
+      }
+      else{
+        out.serie = "X";
+      }
+
+      if ($(comprobante).children('IMPUESTOS')[0]) {
+        out.iva = parseFloat($(comprobante).children('IMPUESTOS')[0].attributes['TOTALIMPUESTOSTRASLADADOS'].value);
+      }
       var conceptos = $(comprobante)
         .children('CONCEPTOS')
         .children('CONCEPTO');
