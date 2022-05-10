@@ -31,6 +31,8 @@ function cargarXML(theFile) {
         tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
         fact: "F-" + comprobante.attributes['FOLIO'].value,
         iva: 0,//impuesto.attributes['TotalImpuestosTrasladados'].value,
+        descuento: 0,
+        excento: 0,
       };
       if (comprobante.attributes['SERIE']) {
         out.serie = comprobante.attributes['SERIE'].value;
@@ -39,9 +41,17 @@ function cargarXML(theFile) {
         out.serie = "X";
       }
 
+      if (comprobante.attributes['DESCUENTO']) {
+        out.descuento = comprobante.attributes['DESCUENTO'].value;
+      }
+      else{
+        out.descuento = 0;
+      }
+
       if ($(comprobante).children('IMPUESTOS')[0]) {
         out.iva = parseFloat($(comprobante).children('IMPUESTOS')[0].attributes['TOTALIMPUESTOSTRASLADADOS'].value);
       }
+      
       var conceptos = $(comprobante)
         .children('CONCEPTOS')
         .children('CONCEPTO');
