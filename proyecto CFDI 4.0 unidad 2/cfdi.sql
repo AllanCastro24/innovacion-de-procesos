@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` text NOT NULL,
-  `correo` text NOT NULL,
+  `nombre` text DEFAULT NULL,
+  `correo` text DEFAULT NULL,
   `user` text NOT NULL,
   `pass` text NOT NULL,
   `imagen` longblob DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Allan Enrique Castro Aguilar','alan.castro.1226.ac@gmail.com','alancastro24','alancastro24',NULL);
+INSERT INTO `usuarios` VALUES (1,'Allan Enrique Castro Aguilar','alan.castro.1226.ac@gmail.com','alancastro24','alancastro24',NULL),(2,'pruebas','pruebas@gmail.com','pruebas','pruebas',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-30 22:12:44
+-- Dump completed on 2022-05-27 23:38:13
