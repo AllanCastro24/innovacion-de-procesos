@@ -51,8 +51,8 @@
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html" style="color: whitesmoke;"><h2>CFDI</h2></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html" style="color: whitesmoke;"><h6>CFDI</h6></a>
+          <a class="sidebar-brand brand-logo" href="index_final.php" style="color: whitesmoke;"><h2>CFDI</h2></a>
+          <a class="sidebar-brand brand-logo-mini" href="index_final.php" style="color: whitesmoke;"><h6>CFDI</h6></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -85,7 +85,7 @@
             <span class="nav-link">Opciones disponibles</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index_final.php">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -107,7 +107,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index_final.php"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
