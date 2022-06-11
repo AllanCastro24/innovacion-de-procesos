@@ -12,7 +12,16 @@ var app = new Vue({
     total_suma: function() {
       var total = 0;
       for (var i = this.cfdis.length - 1; i >= 0; i--) {
-        total += this.total(this.cfdis[i]);
+        //console.log(this.cfdis[i].total_importe);
+        total += parseFloat(this.cfdis[i].total_importe);
+      }
+      return total;
+    },
+    total_iva: function() {
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].total_importe);
+        total += parseFloat(this.cfdis[i].iva);
       }
       return total;
     },
@@ -20,24 +29,54 @@ var app = new Vue({
       return this.cfdis.length;
     },
     total_ingresos: function() {
-      //var total = 0;
-      //for (var i = this.cfdis.length - 1; i >= 0; i--) {
-      //  console.log(item.comprobante[i].tipo);
-      //  total = total + 1;
-      //}
-      return 0;
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].tipo);
+        if(this.cfdis[i].tipo === "I"){
+          total = total + 1;
+        }
+      }
+      return total;
     },
     total_egresos: function() {
-      return 0;
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].tipo);
+        if(this.cfdis[i].tipo === "E"){
+          total = total + 1;
+        }
+      }
+      return total;
     },
     total_traslados: function() {
-      return 0;
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].tipo);
+        if(this.cfdis[i].tipo === "T"){
+          total = total + 1;
+        }
+      }
+      return total;
     },
     total_nomina: function() {
-      return 0;
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].tipo);
+        if(this.cfdis[i].tipo === "N"){
+          total = total + 1;
+        }
+      }
+      return total;
     },
     total_pago: function() {
-      return 0;
+      var total = 0;
+      for (var i = this.cfdis.length - 1; i >= 0; i--) {
+        //console.log(this.cfdis[i].tipo);
+        if(this.cfdis[i].tipo === "P"){
+          total = total + 1;
+        }
+      }
+      return total;
     },
   },
   methods: {
@@ -58,19 +97,12 @@ var app = new Vue({
         reader.readAsText(f);
       }
     },
-    total_gravado: function(item) {
-      //Obtener importes gravados de conceptos
-      var suma = 0;
-      for (var i = item.conceptos.length - 1; i >= 0; i--) {
-        suma += item.conceptos[i].importe;
-      }
-      return suma;
-    },
     total: function(item){
       //Obtener totales de conceptos
       var suma = 0;
       var total = 0;
       for (var i = item.conceptos.length - 1; i >= 0; i--) {
+        console.log(item.total_importe);
         suma += item.conceptos[i].importe;
       }
       total = suma;
@@ -83,8 +115,8 @@ var app = new Vue({
       });
       arr.push(item);
       this.cfdis = arr;
-      console.log('cfdis:');
-      console.log(arr);
+      //console.log('cfdis:');
+      //console.log(arr);
     },
   },
 });

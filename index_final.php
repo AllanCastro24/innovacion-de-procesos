@@ -134,7 +134,8 @@
                               <tr><th>Traslados:</th><td>{{total_traslados}}</td></tr>
                               <tr><th>Nómina:</th><td>{{total_nomina}}</td></tr>
                               <tr><th>Pago:</th><td>{{total_pago}}</td></tr>
-                              <!--tr><th>Total:</th><td>${{total_suma.toFixed(2)}}</td></tr-->
+                              <tr><th>IVA:</th><td>${{total_iva.toFixed(2)}}</td></tr>
+                              <tr><th>Total:</th><td>${{total_suma.toFixed(2)}}</td></tr>
                           </tbody>
                       </table>
                   </div>
@@ -156,7 +157,7 @@
                   
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="tabla" ref="tabla" style="color: aliceblue; scroll-behavior: auto;">
-                        <thead>
+                      <thead>
                           <tr>
                             <th>Fecha</th>
                             <th>tipo</th>
@@ -371,6 +372,7 @@
   }
 
   function _ajax(url, data){
+    alert("Se guardó con éxito");
     var ajax = $.ajax({
       "method" : "POST",
       "url" : "almacenarTabla.php",

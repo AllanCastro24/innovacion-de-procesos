@@ -13,7 +13,7 @@
             $_SESSION["id"] = $fila['id_user'];
             header("location:index_final.php");
         }else{
-            header("location:index.html");
+            header("location:login.php");
         }
     }
 

@@ -9,8 +9,6 @@ function cargarXML(theFile) {
         .replace(/CFDI:/g, '')
         .replace(/\n/g, '')
         .replace(/\>\s+\</g, '><');
-      // console.log(contenido);
-      // x=contenido;
       //comprobante es el primer tag
       var comprobante = $(contenido)[0];
       var emisor = $(comprobante).children('EMISOR')[0];
@@ -18,22 +16,85 @@ function cargarXML(theFile) {
       var impuesto = $(comprobante).children('IMPUESTOS')[0];
       var out = {
         archivo: theFile.name,
-        fecha: comprobante.attributes['FECHA'].value.replace(/T.+/g, ''),
-        rfc: emisor.attributes['RFC'].value,
-        nombre: emisor.attributes['NOMBRE'].value,
-        rfc_receptor: receptor.attributes['RFC'].value,
-        nombre_receptor: receptor.attributes['NOMBRE'].value,
+        fecha: " ",
+        rfc: " " ,
+        nombre: " " ,
+        rfc_receptor: " ",//Checar
+        nombre_receptor: " ", //Checar
         conceptos: [],
-        total_importe: comprobante.attributes['TOTAL'].value,
-        sub_total: comprobante.attributes['SUBTOTAL'].value,
-        //totalimpuestostrasladados: 0,
-        serie: " ",//comprobante.attributes['SERIE'].value,
-        tipo: comprobante.attributes['TIPODECOMPROBANTE'].value,
-        fact: "F-" + comprobante.attributes['FOLIO'].value,
-        iva: 0,//impuesto.attributes['TotalImpuestosTrasladados'].value,
-        descuento: 0,
-        excento: 0,
+        total_importe: 0,
+        sub_total: 0,//Checar
+        serie: " ",//Checar
+        tipo: " ",//Checar
+        fact: " ",//Checar
+        iva: 0,//Checar
+        descuento: 0,//Checar
+        excento: 0, //Checar
       };
+
+      if (comprobante.attributes['FECHA']) {
+        out.fecha = comprobante.attributes['FECHA'].value.replace(/T.+/g, '');
+      }
+      else{
+        out.fecha = " ";
+      }
+
+      if (comprobante.attributes['SUBTOTAL']) {
+        out.sub_total = comprobante.attributes['SUBTOTAL'].value;
+      }
+      else{
+        out.sub_total = 0;
+      }
+
+      if (comprobante.attributes['TOTAL']) {
+        out.total_importe = comprobante.attributes['TOTAL'].value;
+      }
+      else{
+        out.total_importe = 0;
+      }
+
+      if (emisor.attributes['RFC']) {
+        out.rfc = emisor.attributes['RFC'].value;
+      }
+      else{
+        out.rfc = "X";
+      }
+      
+      if (emisor.attributes['NOMBRE']) {
+        out.nombre = emisor.attributes['NOMBRE'].value;
+      }
+      else{
+        out.nombre = "X";
+      }
+
+      if (receptor.attributes['RFC']) {
+        out.rfc_receptor = receptor.attributes['RFC'].value;
+      }
+      else{
+        out.rfc_receptor = "X";
+      }
+
+      if (receptor.attributes['NOMBRE']) {
+        out.nombre_receptor = receptor.attributes['NOMBRE'].value;
+      }
+      else{
+        out.nombre_receptor = " ***** ";
+      }
+
+      if (comprobante.attributes['TIPODECOMPROBANTE']) {
+        out.tipo = comprobante.attributes['TIPODECOMPROBANTE'].value;
+      }
+      else{
+        out.tipo = "X";
+      }
+
+      if (comprobante.attributes['FOLIO']) {
+        out.fact = "F-" + comprobante.attributes['FOLIO'].value;
+      }
+      else{
+        out.fact = "X";
+      }
+
       if (comprobante.attributes['SERIE']) {
         out.serie = comprobante.attributes['SERIE'].value;
       }
@@ -50,6 +111,9 @@ function cargarXML(theFile) {
 
       if ($(comprobante).children('IMPUESTOS')[0]) {
         out.iva = parseFloat($(comprobante).children('IMPUESTOS')[0].attributes['TOTALIMPUESTOSTRASLADADOS'].value);
+      }
+      else{
+        out.iva = 0;
       }
       
       var conceptos = $(comprobante)
