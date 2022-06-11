@@ -16,36 +16,41 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `xml`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `xml`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuarios` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` text DEFAULT NULL,
-  `correo` text DEFAULT NULL,
-  `user` text NOT NULL,
-  `pass` text NOT NULL,
-  `imagen` longblob DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `xml` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `tipo` varchar(10) DEFAULT NULL,
+  `serie` varchar(50) DEFAULT NULL,
+  `fact` varchar(50) DEFAULT NULL,
+  `razon_social` varchar(100) DEFAULT NULL,
+  `importe_excento` double DEFAULT NULL,
+  `importe_gravado` double DEFAULT NULL,
+  `iva` double DEFAULT NULL,
+  `importe_retenido` double DEFAULT NULL,
+  `total` double DEFAULT NULL,
+  `rfc_para_diot` varchar(100) DEFAULT NULL,
+  `concepto` varchar(500) DEFAULT NULL,
+  `nombre_receptor` varchar(100) DEFAULT NULL,
+  `rfc_receptor` varchar(100) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `xml`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Allan Enrique Castro Aguilar','alan.castro.1226.ac@gmail.com','alancastro24','alancastro24',NULL),(2,'pruebas','pruebas@gmail.com','pruebas','pruebas',NULL);
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `xml` WRITE;
+/*!40000 ALTER TABLE `xml` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xml` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'cfdi'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -56,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-27 23:38:13
+-- Dump completed on 2022-06-02 22:01:54
