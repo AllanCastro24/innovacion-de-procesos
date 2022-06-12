@@ -1,5 +1,6 @@
 <?php 
     include "conexion.php";
+    error_reporting(0);
     $nombreUsuario = $_POST['nombreUsuario'];
     $correo = $_POST['correo'];
     $contrasenya = $_POST['contrasenya'];

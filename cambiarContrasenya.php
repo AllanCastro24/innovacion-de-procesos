@@ -1,5 +1,6 @@
 <?php
     include "conexion.php";
+    error_reporting(0);
     $correo = $_POST['correo'];
     $pass = $_POST['contrasenya'];
     $newPass = $_POST['nuevaContrasenya'];
